@@ -70,7 +70,9 @@ def rec7(x):
 
 def rec8(x):
     def rec_fibo(n):
-        if n==0 or n==1:
+        if n==0:
+            return 0
+        elif n==1:
             return 1
         else:
             return rec_fibo(n - 1) + rec_fibo(n - 2)
