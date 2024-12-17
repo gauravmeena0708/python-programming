@@ -102,6 +102,22 @@ def rec9(x):
     solve(x, 1, 3, 2)
     print(len(moves), end="")
 
+def fibonacci(n, memo={}):
+    if n <= 1:
+        return n
+    
+    if n in memo:
+        return memo[n]
+    
+    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+    
+    return memo[n]
+
+
+n = 10
+print(f"Fibonacci of {n} is: {fibonacci(n)}")
+
+
 #essential steps for recursive problem
 # show that it works for n ==1
 #assume f(n-1) works 
