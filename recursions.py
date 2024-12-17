@@ -117,7 +117,40 @@ def fibonacci(n, memo={}):
 n = 10
 print(f"Fibonacci of {n} is: {fibonacci(n)}")
 
+### GP with modulo so that the number does not overflow
+"""
+import sys
+from sys import stdin
 
+MOD = 10**9 + 7
+
+def mod_exp(base, exp, mod):
+    result = 1
+    while exp > 0:
+        if exp % 2 == 1:
+            result = (result * base) % mod
+        base = (base * base) % mod
+        exp //= 2
+    return result
+
+def nthTermOfGP(N, A, R):
+    if N == 1:
+        return A % MOD
+    
+
+    R_power = mod_exp(R, N - 1, MOD)
+    result = (A * R_power) % MOD
+    return result
+
+t = int(sys.stdin.readline().strip())
+
+while(t > 0):
+    
+    n, a, r = map(int,input().split())
+    print(nthTermOfGP(n,a,r))
+    
+    t = t - 1
+"""
 #essential steps for recursive problem
 # show that it works for n ==1
 #assume f(n-1) works 
